@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
 
   s.default_subspecs = 'Core'
 
-  s.subspec 'Core' do |cs|
+  s.subspec 'Core' do |core|
     core.public_header_files = 'TCViperModuleTransitions/TCViperModuleTransitions.h', 'TCViperModuleTransitions/*.{h}'
     core.source_files = 'TCViperModuleTransitions/*.{h,m}'
 
