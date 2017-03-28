@@ -1,0 +1,14 @@
+PODS:
+  - TCViperModuleTransitions (0.1.0):
+    - TCViperModuleTransitions/Core (= 0.1.0)
+  - TCViperModuleTransitions/Core (0.1.0)
+
+DEPENDENCIES:
+  - TCViperModuleTransitions (~> 0.1.0)
+
+SPEC CHECKSUMS:
+  TCViperModuleTransitions: 597ba40ddbee85ed01a305863f91052fe4a23961
+
+PODFILE CHECKSUM: 6318d3a1419d0300b3615c51daadf47e8eba1fb6
+
+COCOAPODS: 1.2.0

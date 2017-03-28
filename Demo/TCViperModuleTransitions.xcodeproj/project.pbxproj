@@ -13,6 +13,7 @@
 		731AE20A1E8A7BEC0092917B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731AE2081E8A7BEC0092917B /* Main.storyboard */; };
 		731AE20C1E8A7BEC0092917B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731AE20B1E8A7BEC0092917B /* Assets.xcassets */; };
 		731AE20F1E8A7BEC0092917B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731AE20D1E8A7BEC0092917B /* LaunchScreen.storyboard */; };
+		A76275850CE01BA240BA067F /* libPods-TCViperModuleTransitions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89204CA7744C69E27FAD97EC /* libPods-TCViperModuleTransitions.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		731AE20B1E8A7BEC0092917B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		731AE20E1E8A7BEC0092917B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		731AE2101E8A7BEC0092917B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89204CA7744C69E27FAD97EC /* libPods-TCViperModuleTransitions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TCViperModuleTransitions.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0ABF66D435FDE096184403F /* Pods-TCViperModuleTransitions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCViperModuleTransitions.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TCViperModuleTransitions/Pods-TCViperModuleTransitions.debug.xcconfig"; sourceTree = "<group>"; };
+		A1D2CA510ECC892D034F5D67 /* Pods-TCViperModuleTransitions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TCViperModuleTransitions.release.xcconfig"; path = "Pods/Target Support Files/Pods-TCViperModuleTransitions/Pods-TCViperModuleTransitions.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A76275850CE01BA240BA067F /* libPods-TCViperModuleTransitions.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19740F0F0747156EA5298200 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A0ABF66D435FDE096184403F /* Pods-TCViperModuleTransitions.debug.xcconfig */,
+				A1D2CA510ECC892D034F5D67 /* Pods-TCViperModuleTransitions.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		731AE1F31E8A7BEC0092917B = {
 			isa = PBXGroup;
 			children = (
 				731AE1FE1E8A7BEC0092917B /* TCViperModuleTransitions */,
 				731AE1FD1E8A7BEC0092917B /* Products */,
+				19740F0F0747156EA5298200 /* Pods */,
+				DFB2C64DF04C74B71A18CDA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +95,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DFB2C64DF04C74B71A18CDA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89204CA7744C69E27FAD97EC /* libPods-TCViperModuleTransitions.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 731AE2131E8A7BEC0092917B /* Build configuration list for PBXNativeTarget "TCViperModuleTransitions" */;
 			buildPhases = (
+				F5248EC631E8386BA668B7D6 /* [CP] Check Pods Manifest.lock */,
 				731AE1F81E8A7BEC0092917B /* Sources */,
 				731AE1F91E8A7BEC0092917B /* Frameworks */,
 				731AE1FA1E8A7BEC0092917B /* Resources */,
+				94DB9D996102837748973880 /* [CP] Embed Pods Frameworks */,
+				1E0BEB751DB19C9564D1C85D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E0BEB751DB19C9564D1C85D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TCViperModuleTransitions/Pods-TCViperModuleTransitions-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94DB9D996102837748973880 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TCViperModuleTransitions/Pods-TCViperModuleTransitions-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5248EC631E8386BA668B7D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		731AE1F81E8A7BEC0092917B /* Sources */ = {
@@ -268,6 +343,7 @@
 		};
 		731AE2141E8A7BEC0092917B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0ABF66D435FDE096184403F /* Pods-TCViperModuleTransitions.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TCViperModuleTransitions/Info.plist;
@@ -279,6 +355,7 @@
 		};
 		731AE2151E8A7BEC0092917B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1D2CA510ECC892D034F5D67 /* Pods-TCViperModuleTransitions.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TCViperModuleTransitions/Info.plist;
