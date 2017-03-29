@@ -28,6 +28,10 @@
 // Method prsent module controller
 - (TCViperOpenModulePromise*)presentModuleController:(UIViewController*)controller;
 
+// Method opens module controller in container
+- (TCViperOpenModulePromise*)openSubmoduleController:(UIViewController*)destinationViewController
+                                         inContainer:(UIView*)containerView;
+
 - (void)closeModalModule;
 
 // Method removes/closes module

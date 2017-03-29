@@ -30,36 +30,7 @@
 }
 
 - (TCViperOpenModulePromise*)moduleOpenPromiseForController:(UIViewController*)destinationViewController {
-    TCViperOpenModulePromise *openModulePromise = [[TCViperOpenModulePromise alloc] init];
-    
-    if ([destinationViewController isKindOfClass:[UINavigationController class]]) {
-        UINavigationController * navigationController = (UINavigationController*)destinationViewController;
-        destinationViewController = navigationController.topViewController;
-    }
-    
-    id<TCViperModuleTransitionHandlerProtocol> targetModuleTransitionHandler = destinationViewController;
-    id<TCViperModuleInput> moduleInput = nil;
-    if ([targetModuleTransitionHandler respondsToSelector:@selector(moduleInput)]) {
-        moduleInput = [targetModuleTransitionHandler moduleInput];
-    }
-    
-    openModulePromise.moduleInput = moduleInput;
-
-    return openModulePromise;
-}
-
-// Method opens module controller
-- (TCViperOpenModulePromise*)openModuleController:(UIViewController*)destinationViewController {
-    TCViperOpenModulePromise *openModulePromise = [self moduleOpenPromiseForController:destinationViewController];
-        
-    [self.navigationController pushViewController:destinationViewController animated:YES];
-    
-    return openModulePromise;
-}
-
-// Method prsent module controller
-- (TCViperOpenModulePromise*)presentModuleController:(UIViewController*)destinationViewController {
-    TCViperOpenModulePromise *openModulePromise = [[TCViperOpenModulePromise alloc] init];
+    TCViperOpenModulePromise * openModulePromise = [[TCViperOpenModulePromise alloc] init];
     
     id<TCViperModuleTransitionHandlerProtocol> targetModuleTransitionHandler = destinationViewController;
     if ([destinationViewController isKindOfClass:[UINavigationController class]]) {
@@ -74,6 +45,22 @@
     
     openModulePromise.moduleInput = moduleInput;
 
+    return openModulePromise;
+}
+
+// Method opens module controller
+- (TCViperOpenModulePromise*)openModuleController:(UIViewController*)destinationViewController {
+    TCViperOpenModulePromise * openModulePromise = [self moduleOpenPromiseForController:destinationViewController];
+        
+    [self.navigationController pushViewController:destinationViewController animated:YES];
+    
+    return openModulePromise;
+}
+
+// Method prsent module controller
+- (TCViperOpenModulePromise*)presentModuleController:(UIViewController*)destinationViewController {
+    TCViperOpenModulePromise * openModulePromise = [self moduleOpenPromiseForController:destinationViewController];
+
     //Call present module controller in next chain, because loadView called immediately after presentViewController call 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.navigationController presentViewController:destinationViewController
@@ -81,6 +68,21 @@
                                               completion:nil];
     });
     
+    return openModulePromise;
+}
+
+- (TCViperOpenModulePromise*)openSubmoduleController:(UIViewController*)destinationViewController
+                                         inContainer:(UIView*)containerView{
+    TCViperOpenModulePromise * openModulePromise = [self moduleOpenPromiseForController:destinationViewController];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self addChildViewController:destinationViewController];
+        destinationViewController.view.translatesAutoresizingMaskIntoConstraints = NO;
+        [containerView addSubview:destinationViewController.view];
+        [self configureLayoutConstraintsForView:destinationViewController.view inContainerView:containerView];
+        [destinationViewController didMoveToParentViewController:self];
+    });
+
     return openModulePromise;
 }
 
@@ -121,6 +123,15 @@
         [self removeFromParentViewController];
         [self.view removeFromSuperview];
     }
+}
+
+#pragma mark - Private methods
+
+- (void)configureLayoutConstraintsForView:(UIView*)view inContainerView:(UIView*)containerView {
+    [view.topAnchor constraintEqualToAnchor:containerView.topAnchor];
+    [view.leadingAnchor constraintEqualToAnchor:containerView.leadingAnchor];
+    [view.trailingAnchor constraintEqualToAnchor:containerView.trailingAnchor];
+    [view.bottomAnchor constraintEqualToAnchor:containerView.bottomAnchor];
 }
 
 @end
