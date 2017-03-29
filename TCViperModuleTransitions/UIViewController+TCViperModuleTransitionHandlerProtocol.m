@@ -72,7 +72,7 @@
 }
 
 - (TCViperOpenModulePromise*)openSubmoduleController:(UIViewController*)destinationViewController
-                                         inContainer:(UIView*)containerView{
+                                         inContainer:(UIView*)containerView {
     TCViperOpenModulePromise * openModulePromise = [self moduleOpenPromiseForController:destinationViewController];
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -128,10 +128,10 @@
 #pragma mark - Private methods
 
 - (void)configureLayoutConstraintsForView:(UIView*)view inContainerView:(UIView*)containerView {
-    [view.topAnchor constraintEqualToAnchor:containerView.topAnchor];
-    [view.leadingAnchor constraintEqualToAnchor:containerView.leadingAnchor];
-    [view.trailingAnchor constraintEqualToAnchor:containerView.trailingAnchor];
-    [view.bottomAnchor constraintEqualToAnchor:containerView.bottomAnchor];
+    [view.topAnchor constraintEqualToAnchor:containerView.topAnchor].active = YES;
+    [view.leadingAnchor constraintEqualToAnchor:containerView.leadingAnchor].active = YES;
+    [view.trailingAnchor constraintEqualToAnchor:containerView.trailingAnchor].active = YES;
+    [view.bottomAnchor constraintEqualToAnchor:containerView.bottomAnchor].active = YES;
 }
 
 @end
