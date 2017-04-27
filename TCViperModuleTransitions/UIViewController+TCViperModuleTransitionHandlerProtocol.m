@@ -63,9 +63,9 @@
 
     //Call present module controller in next chain, because loadView called immediately after presentViewController call 
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController presentViewController:destinationViewController
-                                                animated:YES
-                                              completion:nil];
+        [self presentViewController:destinationViewController
+                           animated:YES
+                         completion:nil];
     });
     
     return openModulePromise;
